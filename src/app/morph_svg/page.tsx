@@ -15,17 +15,14 @@ export default function Home() {
     config: { duration: 1000 },
   });
   useEffect(() => {
-    setMorph(!morph);
+    setMorph((prev) => !prev);
     return () => {};
   }, []);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
-      <svg
+      <animated.svg
         onClick={() => setMorph(!morph)}
-        id="blobsvg"
-        key="0"
-        width={"100vw"}
         className="w-screen md:w-2/5 cursor-pointer"
         viewBox="0 0 1000 1000"
         xmlns="http://www.w3.org/2000/svg"
@@ -46,12 +43,12 @@ export default function Home() {
             />
           </pattern>
         </defs>
-        <g clipPath="url(#shape)" className="w-screen">
-          <animated.path d={d} fill="url(#imageId)" />
-        </g>
-      </svg>
+        <animated.path d={d} fill="url(#imageId)" />
+      </animated.svg>
       <code>npm i @react-spring/web</code>
-      <h1 className="text-2xl mt-8">will add the code in the website later for now look at the repo for code</h1>
+      <h1 className="text-2xl mt-8">
+        will add the code in the website later for now look at the repo for code
+      </h1>
     </main>
   );
 }
